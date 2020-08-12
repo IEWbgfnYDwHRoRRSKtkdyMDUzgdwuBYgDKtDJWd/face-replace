@@ -18,11 +18,10 @@ Final result could be saved to the video file or just shown on the screen.
 ## Example
 Original video, no face replaced:
 
-<a href="https://youtu.be/YqC5wShZCXQ"><img src="https://j.gifs.com/rkE0JW.gif"></a>
+
 
 Final video, Arni's face is in place of mine:
 
-<a href="https://youtu.be/6X2vD8vt1t4"><img src="https://j.gifs.com/ERZlA4.gif"></a>
 
 ## Technical Notes
 * All image processing is done on the greyscale frames. If input video is in color, it will be converted to greyscale.
