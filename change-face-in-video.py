@@ -13,19 +13,18 @@ def warp_face_in_video(facial_mask_fn, video_in_fn, video_out_fn, show_video=Fal
     :param video_out_fn: path to the video file which will have 'replaced' face
     :param show_video: bool flag to show window with processed video frames
     """
-
     facial_mask = cv2.imread(facial_mask_fn)
     facial_mask = cv2.cvtColor(facial_mask, cv2.COLOR_BGR2GRAY)
     facial_mask_lm = faceWarp.find_landmarks(facial_mask, faceWarp.predictor)
 
     video_in = cv2.VideoCapture(video_in_fn)
-
+    FPS=(int(video_in.get(cv2.CAP_PROP_FPS)))
     video_out = cv2.VideoWriter(
         filename=video_out_fn,
         fourcc=cv2.VideoWriter_fourcc('m', '2', 'v', '1'),
         frameSize=(int(video_in.get(cv2.CAP_PROP_FRAME_WIDTH)),
                    int(video_in.get(cv2.CAP_PROP_FRAME_HEIGHT))),
-        fps=25.0,
+        fps=FPS,
         isColor=True)
 
     total_frames_in = video_in.get(cv2.CAP_PROP_FRAME_COUNT)
